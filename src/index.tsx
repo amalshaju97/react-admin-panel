@@ -12,7 +12,7 @@ import {Chart, registerables} from 'chart.js'
 
 // Apps
 import {App} from './app/App'
-import {MetronicI18nProvider} from './_common/i18n/Metronici18n'
+import {CommonI18nProvider} from './_common/i18n/Commoni18n'
 /**
  * TIP: Replace this style import with dark styles to enable dark mode
  *
@@ -32,14 +32,14 @@ import './_common/assets/sass/style.react.scss'
 const {PUBLIC_URL} = process.env
 /**
  * Creates `axios-mock-adapter` instance for provided `axios` instance, add
- * basic Metronic mocks and returns it.
+ * basic mocks and returns it.
  *
  * @see https://github.com/ctimmerm/axios-mock-adapter
  */
 
 /* const mock = */ _redux.mockAxios(axios)
 /**
- * Inject Metronic interceptors for axios.
+ * Inject interceptors for axios.
  *
  * @see https://github.com/axios/axios#interceptors
  */
@@ -48,13 +48,13 @@ _redux.setupAxios(axios, store)
 Chart.register(...registerables)
 
 ReactDOM.render(
-  <MetronicI18nProvider>
+  <CommonI18nProvider>
     <Provider store={store}>
       {/* Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
       <PersistGate persistor={persistor} loading={<div>Loading...</div>}>
         <App basename={PUBLIC_URL} />
       </PersistGate>
     </Provider>
-  </MetronicI18nProvider>,
+  </CommonI18nProvider>,
   document.getElementById('root')
 )
