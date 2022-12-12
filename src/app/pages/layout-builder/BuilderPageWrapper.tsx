@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {PageTitle} from '../../../_metronic/layout/core'
+import {PageTitle} from '../../../_common/layout/core'
 import {BuilderPage} from './BuilderPage'
 
 const BuilderPageWrapper: FC = () => {

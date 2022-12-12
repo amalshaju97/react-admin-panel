@@ -1,4 +1,4 @@
-import {toAbsoluteUrl} from '../../../../_metronic/helpers'
+import {toAbsoluteUrl} from '../../../../_common/helpers'
 import {UserModel} from '../models/UserModel'
 
 export class UsersTableMock {

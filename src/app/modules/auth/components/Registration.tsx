@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import * as auth from '../redux/AuthRedux'
 import {register} from '../redux/AuthCRUD'
 import {Link} from 'react-router-dom'
-import {toAbsoluteUrl} from '../../../../_metronic/helpers'
+import {toAbsoluteUrl} from '../../../../_common/helpers'
 
 const initialValues = {
   firstname: '',
