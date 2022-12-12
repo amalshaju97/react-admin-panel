@@ -9,7 +9,6 @@ import {MasterInit} from './MasterInit'
 import {PageDataProvider} from './core'
 import {
   DrawerMessenger,
-  ExploreMain,
   ActivityDrawer,
   Main,
   InviteUsers,
@@ -36,7 +35,7 @@ const MasterLayout: React.FC = ({children}) => {
 
       {/* begin:: Drawers */}
       <ActivityDrawer />
-      <ExploreMain />
+      {/* <ExploreMain /> */}
       <DrawerMessenger />
       {/* end:: Drawers */}
 
