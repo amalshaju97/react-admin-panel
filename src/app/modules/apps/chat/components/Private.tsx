@@ -60,7 +60,7 @@ const Private: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-2.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-1.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -81,7 +81,7 @@ const Private: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-4.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-5.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -103,7 +103,7 @@ const Private: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-15.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-25.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -147,7 +147,7 @@ const Private: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-8.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-9.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -217,7 +217,7 @@ const Private: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-6.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-23.jpg')} />
                   </div>
 
                   <div className='ms-5'>

@@ -107,7 +107,7 @@ const TablesWidget3: React.FC<Props> = ({className}) => {
                     New Users
                   </a>
                 </td>
-                <td className='text-end text-muted fw-bold'>Laravel</td>
+                <td className='text-end text-muted fw-bold'>Laravel, Metronic</td>
                 <td className='text-end text-muted fw-bold'>890 Users</td>
                 <td className='text-end text-dark fw-bolder fs-6 pe-0'>1.5MB</td>
               </tr>

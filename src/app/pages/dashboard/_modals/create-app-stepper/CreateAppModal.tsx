@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState, useRef} from 'react'
-import {Modal} from 'react-bootstrap-v5'
+import {Modal} from 'react-bootstrap'
 import {StepperComponent} from '../../../../../_common/assets/ts/components'
 import {KTSVG} from '../../../../../_common/helpers'
 import {defaultCreateAppData, ICreateAppData} from './IAppModels'

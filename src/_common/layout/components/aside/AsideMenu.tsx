@@ -2,12 +2,7 @@ import React, {useRef, useEffect} from 'react'
 import {useLocation} from 'react-router'
 import clsx from 'clsx'
 import {AsideMenuMain} from './AsideMenuMain'
-import {
-  DrawerComponent,
-  MenuComponent,
-  ScrollComponent,
-  ToggleComponent,
-} from '../../../assets/ts/components'
+import {DrawerComponent, ScrollComponent, ToggleComponent} from '../../../assets/ts/components'
 
 type Props = {
   asideMenuCSSClasses: string[]
@@ -19,7 +14,6 @@ const AsideMenu: React.FC<Props> = ({asideMenuCSSClasses}) => {
 
   useEffect(() => {
     setTimeout(() => {
-      MenuComponent.reinitialization()
       DrawerComponent.reinitialization()
       ToggleComponent.reinitialization()
       ScrollComponent.reinitialization()

@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
+import {useState, useEffect} from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import * as auth from '../redux/AuthRedux'
-import {register} from '../redux/AuthCRUD'
+import {getUserByToken, register} from '../core/_requests'
 import {Link} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../../_common/helpers'
+import {PasswordMeterComponent} from '../../../../_common/assets/ts/components'
+import {useAuth} from '../core/Auth'
 
 const initialValues = {
   firstname: '',
@@ -47,26 +47,36 @@ const registrationSchema = Yup.object().shape({
 
 export function Registration() {
   const [loading, setLoading] = useState(false)
-  const dispatch = useDispatch()
+  const {saveAuth, setCurrentUser} = useAuth()
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
-    onSubmit: (values, {setStatus, setSubmitting}) => {
+    onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
-      setTimeout(() => {
-        register(values.email, values.firstname, values.lastname, values.password)
-          .then(({data: {accessToken}}) => {
-            setLoading(false)
-            dispatch(auth.actions.login(accessToken))
-          })
-          .catch(() => {
-            setLoading(false)
-            setSubmitting(false)
-            setStatus('Registration process has broken')
-          })
-      }, 1000)
+      try {
+        const {data: auth} = await register(
+          values.email,
+          values.firstname,
+          values.lastname,
+          values.password,
+          values.changepassword
+        )
+        saveAuth(auth)
+        const {data: user} = await getUserByToken(auth.api_token)
+        setCurrentUser(user)
+      } catch (error) {
+        console.error(error)
+        saveAuth(undefined)
+        setStatus('The registration details is incorrect')
+        setSubmitting(false)
+        setLoading(false)
+      }
     },
   })
+
+  useEffect(() => {
+    PasswordMeterComponent.bootstrap()
+  }, [])
 
   return (
     <form
@@ -228,6 +238,20 @@ export function Registration() {
               </div>
             )}
           </div>
+          {/* begin::Meter */}
+          <div
+            className='d-flex align-items-center mb-3'
+            data-kt-password-meter-control='highlight'
+          >
+            <div className='flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2'></div>
+            <div className='flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2'></div>
+            <div className='flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2'></div>
+            <div className='flex-grow-1 bg-secondary bg-active-success rounded h-5px'></div>
+          </div>
+          {/* end::Meter */}
+        </div>
+        <div className='text-muted'>
+          Use 8 or more characters with a mix of letters, numbers & symbols.
         </div>
       </div>
       {/* end::Form group */}

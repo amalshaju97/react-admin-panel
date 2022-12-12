@@ -1,16 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import {Redirect, Route, Switch, useHistory} from 'react-router-dom'
+import {Route, Link, Routes, Outlet} from 'react-router-dom'
 import {Error500} from './components/Error500'
 import {Error404} from './components/Error404'
 import {toAbsoluteUrl} from '../../../_common/helpers'
 
-const ErrorsPage: React.FC = () => {
-  const history = useHistory()
-  const redirectToDashboard = () => {
-    history.push('/')
-  }
-
+const ErrorsLayout = () => {
   return (
     <div className='d-flex flex-column flex-root'>
       <div
@@ -26,21 +20,11 @@ const ErrorsPage: React.FC = () => {
             />
           </a>
           <div className='pt-lg-10 mb-10'>
-            <Switch>
-              <Route path='/error/404' exact={true}>
-                <Error404 />
-              </Route>
-              <Route path='/error/500' exact={true}>
-                <Error500 />
-              </Route>
-              <Redirect from='/error' exact={true} to='/error/404' />
-              <Redirect to='/error/404' />
-            </Switch>
-
+            <Outlet />
             <div className='text-center'>
-              <a onClick={redirectToDashboard} className='btn btn-lg btn-primary fw-bolder'>
+              <Link to='/' className='btn btn-lg btn-primary fw-bolder'>
                 Go to homepage
-              </a>
+              </Link>
             </div>
           </div>
           <div
@@ -76,5 +60,15 @@ const ErrorsPage: React.FC = () => {
     </div>
   )
 }
+
+const ErrorsPage = () => (
+  <Routes>
+    <Route element={<ErrorsLayout />}>
+      <Route path='404' element={<Error404 />} />
+      <Route path='500' element={<Error500 />} />
+      <Route index element={<Error404 />} />
+    </Route>
+  </Routes>
+)
 
 export {ErrorsPage}

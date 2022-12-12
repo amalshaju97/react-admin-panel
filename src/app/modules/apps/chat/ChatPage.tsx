@@ -1,5 +1,4 @@
-import React from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import {Navigate, Route, Routes, Outlet} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../../_common/layout/core'
 import {Private} from './components/Private'
 import {Group} from './components/Group'
@@ -20,24 +19,40 @@ const chatBreadCrumbs: Array<PageLink> = [
   },
 ]
 
-const ChatPage: React.FC = () => {
+const ChatPage = () => {
   return (
-    <Switch>
-      <Route path='/apps/chat/private-chat'>
-        <PageTitle breadcrumbs={chatBreadCrumbs}>Private chat</PageTitle>
-        <Private />
+    <Routes>
+      <Route element={<Outlet />}>
+        <Route
+          path='private-chat'
+          element={
+            <>
+              <PageTitle breadcrumbs={chatBreadCrumbs}>Private chat</PageTitle>
+              <Private />
+            </>
+          }
+        />
+        <Route
+          path='group-chat'
+          element={
+            <>
+              <PageTitle breadcrumbs={chatBreadCrumbs}>Group chat</PageTitle>
+              <Group />
+            </>
+          }
+        />
+        <Route
+          path='drawer-chat'
+          element={
+            <>
+              <PageTitle breadcrumbs={chatBreadCrumbs}>Drawer chat</PageTitle>
+              <Drawer />
+            </>
+          }
+        />
+        <Route index element={<Navigate to='/apps/chat/private-chat' />} />
       </Route>
-      <Route path='/apps/chat/group-chat'>
-        <PageTitle breadcrumbs={chatBreadCrumbs}>Group chat</PageTitle>
-        <Group />
-      </Route>
-      <Route path='/apps/chat/drawer-chat'>
-        <PageTitle breadcrumbs={chatBreadCrumbs}>Drawer chat</PageTitle>
-        <Drawer />
-      </Route>
-      <Redirect from='/apps/chat' exact={true} to='/apps/chat/private-chat' />
-      <Redirect to='/apps/chat/private-chat' />
-    </Switch>
+    </Routes>
   )
 }
 

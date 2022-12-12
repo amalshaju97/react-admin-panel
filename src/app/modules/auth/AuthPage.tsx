@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useEffect} from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import {useEffect} from 'react'
+import {Outlet, Route, Routes} from 'react-router-dom'
 import {Registration} from './components/Registration'
 import {ForgotPassword} from './components/ForgotPassword'
 import {Login} from './components/Login'
 import {toAbsoluteUrl} from '../../../_common/helpers'
 
-export function AuthPage() {
+const AuthLayout = () => {
   useEffect(() => {
     document.body.classList.add('bg-white')
     return () => {
@@ -30,13 +30,7 @@ export function AuthPage() {
         {/* end::Logo */}
         {/* begin::Wrapper */}
         <div className='w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto'>
-          <Switch>
-            <Route path='/auth/login' component={Login} />
-            <Route path='/auth/registration' component={Registration} />
-            <Route path='/auth/forgot-password' component={ForgotPassword} />
-            <Redirect from='/auth' exact={true} to='/auth/login' />
-            <Redirect to='/auth/login' />
-          </Switch>
+          <Outlet />
         </div>
         {/* end::Wrapper */}
       </div>
@@ -61,3 +55,16 @@ export function AuthPage() {
     </div>
   )
 }
+
+const AuthPage = () => (
+  <Routes>
+    <Route element={<AuthLayout />}>
+      <Route path='login' element={<Login />} />
+      <Route path='registration' element={<Registration />} />
+      <Route path='forgot-password' element={<ForgotPassword />} />
+      <Route index element={<Login />} />
+    </Route>
+  </Routes>
+)
+
+export {AuthPage}

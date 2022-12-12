@@ -60,7 +60,7 @@ const Group: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-2.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-1.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -81,7 +81,7 @@ const Group: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-4.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-5.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -103,7 +103,7 @@ const Group: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-15.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-25.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -147,7 +147,7 @@ const Group: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-8.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-9.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -217,7 +217,7 @@ const Group: FC = () => {
               <div className='d-flex flex-stack py-4'>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-45px symbol-circle'>
-                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-6.jpg')} />
+                    <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-23.jpg')} />
                   </div>
 
                   <div className='ms-5'>
@@ -268,16 +268,16 @@ const Group: FC = () => {
             <div className='card-title'>
               <div className='symbol-group symbol-hover'>
                 <div className='symbol symbol-35px symbol-circle'>
-                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-4.jpg')} />
+                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-5.jpg')} />
                 </div>
                 <div className='symbol symbol-35px symbol-circle'>
-                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-15.jpg')} />
+                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-25.jpg')} />
                 </div>
                 <div className='symbol symbol-35px symbol-circle'>
                   <span className='symbol-label bg-light-warning text-warning 40px'>M</span>
                 </div>
                 <div className='symbol symbol-35px symbol-circle'>
-                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-8.jpg')} />
+                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-9.jpg')} />
                 </div>
                 <div className='symbol symbol-35px symbol-circle'>
                   <span className='symbol-label bg-light-danger text-danger 40px'>O</span>
@@ -286,7 +286,7 @@ const Group: FC = () => {
                   <span className='symbol-label bg-light-primary text-primary 40px'>N</span>
                 </div>
                 <div className='symbol symbol-35px symbol-circle'>
-                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/150-6.jpg')} />
+                  <img alt='Pic' src={toAbsoluteUrl('/media/avatars/300-23.jpg')} />
                 </div>
                 <a
                   href='#'

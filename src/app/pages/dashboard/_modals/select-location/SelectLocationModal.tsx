@@ -1,5 +1,5 @@
 import React, {Dispatch, SetStateAction, useState, useEffect} from 'react'
-import {Modal} from 'react-bootstrap-v5'
+import {Modal} from 'react-bootstrap'
 import {KTSVG} from '../../../../../_common/helpers'
 
 type Props = {

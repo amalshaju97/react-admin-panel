@@ -1,5 +1,4 @@
-import React from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import {Route, Routes, Outlet, Navigate} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_common/layout/core'
 import {Vertical} from './components/Vertical'
 import {Horizontal} from './components/Horizontal'
@@ -19,21 +18,30 @@ const wizardsBreadCrumbs: Array<PageLink> = [
   },
 ]
 
-const WizardsPage: React.FC = () => {
-  return (
-    <Switch>
-      <Route path='/crafted/pages/wizards/horizontal'>
-        <PageTitle breadcrumbs={wizardsBreadCrumbs}>Horizontal</PageTitle>
-        <Horizontal />
-      </Route>
-      <Route path='/crafted/pages/wizards/vertical'>
-        <PageTitle breadcrumbs={wizardsBreadCrumbs}>Vertical</PageTitle>
-        <Vertical />
-      </Route>
-      <Redirect from='/crafted/pages/wizards' exact={true} to='/crafted/pages/wizards/horizontal' />
-      <Redirect to='/crafted/pages/wizards/horizontal' />
-    </Switch>
-  )
-}
+const WizardsPage = () => (
+  <Routes>
+    <Route element={<Outlet />}>
+      <Route
+        path='horizontal'
+        element={
+          <>
+            <PageTitle breadcrumbs={wizardsBreadCrumbs}>Horizontal</PageTitle>
+            <Horizontal />
+          </>
+        }
+      />
+      <Route
+        path='vertical'
+        element={
+          <>
+            <PageTitle breadcrumbs={wizardsBreadCrumbs}>Vertical</PageTitle>
+            <Vertical />
+          </>
+        }
+      />
+      <Route index element={<Navigate to='/crafted/pages/wizards/horizontal' />} />
+    </Route>
+  </Routes>
+)
 
 export default WizardsPage

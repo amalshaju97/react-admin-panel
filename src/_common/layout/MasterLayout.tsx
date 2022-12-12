@@ -1,21 +1,31 @@
-import React from 'react'
+import {useEffect} from 'react'
+import {Outlet} from 'react-router-dom'
 import {AsideDefault} from './components/aside/AsideDefault'
 import {Footer} from './components/Footer'
 import {HeaderWrapper} from './components/header/HeaderWrapper'
 import {Toolbar} from './components/toolbar/Toolbar'
+import {RightToolbar} from '../partials/layout/RightToolbar'
 import {ScrollTop} from './components/ScrollTop'
 import {Content} from './components/Content'
-import {MasterInit} from './MasterInit'
 import {PageDataProvider} from './core'
-import {
-  DrawerMessenger,
-  ActivityDrawer,
-  Main,
-  InviteUsers,
-  UpgradePlan,
-} from '../partials'
+import {useLocation} from 'react-router-dom'
+import {DrawerMessenger, ActivityDrawer, Main, InviteUsers, UpgradePlan} from '../partials'
+import {MenuComponent} from '../assets/ts/components'
 
-const MasterLayout: React.FC = ({children}) => {
+const MasterLayout = () => {
+  const location = useLocation()
+  useEffect(() => {
+    setTimeout(() => {
+      MenuComponent.reinitialization()
+    }, 500)
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      MenuComponent.reinitialization()
+    }, 500)
+  }, [location.key])
+
   return (
     <PageDataProvider>
       <div className='page d-flex flex-row flex-column-fluid'>
@@ -26,7 +36,9 @@ const MasterLayout: React.FC = ({children}) => {
           <div id='kt_content' className='content d-flex flex-column flex-column-fluid'>
             <Toolbar />
             <div className='post d-flex flex-column-fluid' id='kt_post'>
-              <Content>{children}</Content>
+              <Content>
+                <Outlet />
+              </Content>
             </div>
           </div>
           <Footer />
@@ -35,7 +47,7 @@ const MasterLayout: React.FC = ({children}) => {
 
       {/* begin:: Drawers */}
       <ActivityDrawer />
-      {/* <ExploreMain /> */}
+      <RightToolbar />
       <DrawerMessenger />
       {/* end:: Drawers */}
 
@@ -44,8 +56,6 @@ const MasterLayout: React.FC = ({children}) => {
       <InviteUsers />
       <UpgradePlan />
       {/* end:: Modals */}
-
-      <MasterInit />
       <ScrollTop />
     </PageDataProvider>
   )

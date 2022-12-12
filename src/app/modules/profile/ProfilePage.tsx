@@ -1,5 +1,4 @@
-import React from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import {Navigate, Routes, Route, Outlet} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_common/layout/core'
 import {Overview} from './components/Overview'
 import {Projects} from './components/Projects'
@@ -23,36 +22,64 @@ const profileBreadCrumbs: Array<PageLink> = [
   },
 ]
 
-const ProfilePage: React.FC = () => {
-  return (
-    <>
-      <ProfileHeader />
-      <Switch>
-        <Route path='/crafted/pages/profile/overview'>
-          <PageTitle breadcrumbs={profileBreadCrumbs}>Overview</PageTitle>
-          <Overview />
-        </Route>
-        <Route path='/crafted/pages/profile/projects'>
-          <PageTitle breadcrumbs={profileBreadCrumbs}>Projects</PageTitle>
-          <Projects />
-        </Route>
-        <Route path='/crafted/pages/profile/campaigns'>
-          <PageTitle breadcrumbs={profileBreadCrumbs}>Campaigns</PageTitle>
-          <Campaigns />
-        </Route>
-        <Route path='/crafted/pages/profile/documents'>
-          <PageTitle breadcrumbs={profileBreadCrumbs}>Documents</PageTitle>
-          <Documents />
-        </Route>
-        <Route path='/crafted/pages/profile/connections'>
-          <PageTitle breadcrumbs={profileBreadCrumbs}>Connections</PageTitle>
-          <Connections />
-        </Route>
-        <Redirect from='/crafted/pages/profile' exact={true} to='/crafted/pages/profile/overview' />
-        <Redirect to='/crafted/pages/profile/overview' />
-      </Switch>
-    </>
-  )
-}
+const ProfilePage = () => (
+  <Routes>
+    <Route
+      element={
+        <>
+          <ProfileHeader />
+          <Outlet />
+        </>
+      }
+    >
+      <Route
+        path='overview'
+        element={
+          <>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Overview</PageTitle>
+            <Overview />
+          </>
+        }
+      />
+      <Route
+        path='projects'
+        element={
+          <>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Projects</PageTitle>
+            <Projects />
+          </>
+        }
+      />
+      <Route
+        path='campaigns'
+        element={
+          <>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Campaigns</PageTitle>
+            <Campaigns />
+          </>
+        }
+      />
+      <Route
+        path='documents'
+        element={
+          <>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Documents</PageTitle>
+            <Documents />
+          </>
+        }
+      />
+      <Route
+        path='connections'
+        element={
+          <>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Connections</PageTitle>
+            <Connections />
+          </>
+        }
+      />
+      <Route index element={<Navigate to='/crafted/pages/profile/overview' />} />
+    </Route>
+  </Routes>
+)
 
 export default ProfilePage

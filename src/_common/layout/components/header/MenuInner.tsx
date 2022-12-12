@@ -114,7 +114,13 @@ export function MenuInner() {
           <MenuItem to='/apps/chat/group-chat' title='Group Chart' hasBullet={true} />
           <MenuItem to='/apps/chat/drawer-chat' title='Drawer Chart' hasBullet={true} />
         </MenuInnerWithSub>
+        <MenuItem
+          icon='/media/icons/duotune/general/gen051.svg'
+          to='/apps/user-management/users'
+          title='User management'
+        />
       </MenuInnerWithSub>
+
       <MenuInnerWithSub
         isMega={true}
         title='Mega menu'

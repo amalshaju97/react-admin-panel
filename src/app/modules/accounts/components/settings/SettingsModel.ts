@@ -71,7 +71,7 @@ export interface IDeactivateAccount {
 }
 
 export const profileDetailsInitValues: IProfileDetails = {
-  avatar: '/media/avatars/150-2.jpg',
+  avatar: '/media/avatars/300-1.jpg',
   fName: 'Max',
   lName: 'Smith',
   company: 'Keenthemes',

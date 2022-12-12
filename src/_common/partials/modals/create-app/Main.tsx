@@ -220,7 +220,7 @@ const Main: FC = () => {
                               name='appName'
                               placeholder=''
                             />
-                            <div className='fv-plugins-message-container invalid-feedback'>
+                            <div className='text-danger'>
                               <ErrorMessage name='appName' />
                             </div>
                           </div>
@@ -328,7 +328,7 @@ const Main: FC = () => {
                               </label>
                             </div>
 
-                            <div className='fv-plugins-message-container invalid-feedback'>
+                            <div className='text-danger'>
                               <ErrorMessage name='category' />
                             </div>
                           </div>
@@ -448,7 +448,7 @@ const Main: FC = () => {
                               </span>
                             </label>
                           </div>
-                          <div className='fv-plugins-message-container invalid-feedback'>
+                          <div className='text-danger'>
                             <ErrorMessage name='framework' />
                           </div>
                         </div>
@@ -465,7 +465,7 @@ const Main: FC = () => {
                               name='dbName'
                               placeholder=''
                             />
-                            <div className='fv-plugins-message-container invalid-feedback'>
+                            <div className='text-danger'>
                               <ErrorMessage name='dbName' />
                             </div>
                           </div>
@@ -561,7 +561,7 @@ const Main: FC = () => {
                             </label>
                           </div>
 
-                          <div className='fv-plugins-message-container invalid-feedback'>
+                          <div className='text-danger'>
                             <ErrorMessage name='dbType' />
                           </div>
                         </div>
@@ -596,7 +596,7 @@ const Main: FC = () => {
                               placeholder=''
                               name='nameOnCard'
                             />
-                            <div className='fv-plugins-message-container invalid-feedback'>
+                            <div className='text-danger'>
                               <ErrorMessage name='nameOnCard' />
                             </div>
                           </div>
@@ -612,7 +612,7 @@ const Main: FC = () => {
                                 placeholder='Enter card number'
                                 name='cardNumber'
                               />
-                              <div className='fv-plugins-message-container invalid-feedback'>
+                              <div className='text-danger'>
                                 <ErrorMessage name='cardNumber' />
                               </div>
 
@@ -662,7 +662,7 @@ const Main: FC = () => {
                                     <option value='11'>11</option>
                                     <option value='12'>12</option>
                                   </Field>
-                                  <div className='fv-plugins-message-container invalid-feedback'>
+                                  <div className='text-danger'>
                                     <ErrorMessage name='cardExpiryMonth' />
                                   </div>
                                 </div>
@@ -686,7 +686,7 @@ const Main: FC = () => {
                                     <option value='2030'>2030</option>
                                     <option value='2031'>2031</option>
                                   </Field>
-                                  <div className='fv-plugins-message-container invalid-feedback'>
+                                  <div className='text-danger'>
                                     <ErrorMessage name='cardExpiryYear' />
                                   </div>
                                 </div>
@@ -710,7 +710,7 @@ const Main: FC = () => {
                                   placeholder='CVV'
                                   name='cardCvv'
                                 />
-                                <div className='fv-plugins-message-container invalid-feedback'>
+                                <div className='text-danger'>
                                   <ErrorMessage name='cardCvv' />
                                 </div>
 

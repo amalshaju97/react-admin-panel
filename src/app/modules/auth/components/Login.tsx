@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
+import {useState} from 'react'
 import * as Yup from 'yup'
 import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
-import * as auth from '../redux/AuthRedux'
-import {login} from '../redux/AuthCRUD'
+import {getUserByToken, login} from '../core/_requests'
 import {toAbsoluteUrl} from '../../../../_common/helpers'
+import {useAuth} from '../core/Auth'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -34,24 +33,25 @@ const initialValues = {
 
 export function Login() {
   const [loading, setLoading] = useState(false)
-  const dispatch = useDispatch()
+  const {saveAuth, setCurrentUser} = useAuth()
+
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
-    onSubmit: (values, {setStatus, setSubmitting}) => {
+    onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
-      setTimeout(() => {
-        login(values.email, values.password)
-          .then(({data: {accessToken}}) => {
-            setLoading(false)
-            dispatch(auth.actions.login(accessToken))
-          })
-          .catch(() => {
-            setLoading(false)
-            setSubmitting(false)
-            setStatus('The login detail is incorrect')
-          })
-      }, 1000)
+      try {
+        const {data: auth} = await login(values.email, values.password)
+        saveAuth(auth)
+        const {data: user} = await getUserByToken(auth.api_token)
+        setCurrentUser(user)
+      } catch (error) {
+        console.error(error)
+        saveAuth(undefined)
+        setStatus('The login detail is incorrect')
+        setSubmitting(false)
+        setLoading(false)
+      }
     },
   })
 
@@ -64,7 +64,7 @@ export function Login() {
     >
       {/* begin::Heading */}
       <div className='text-center mb-10'>
-        <h1 className='text-dark mb-3'>Sign In</h1>
+        <h1 className='text-dark mb-3'>Sign In to Metronic</h1>
         <div className='text-gray-400 fw-bold fs-4'>
           New Here?{' '}
           <Link to='/auth/registration' className='link-primary fw-bolder'>

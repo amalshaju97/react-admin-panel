@@ -30,7 +30,7 @@ const Item7: FC = () => {
               data-bs-placement='top'
               title='Robert Rich'
             >
-              <img src={toAbsoluteUrl('/media/avatars/150-14.jpg')} alt='img' />
+              <img src={toAbsoluteUrl('/media/avatars/300-4.jpg')} alt='img' />
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ const Item7: FC = () => {
               <div className='mb-3 mb-md-0 fw-bold'>
                 <h4 className='text-gray-800 fw-bolder'>Database Backup Process Completed!</h4>
                 <div className='fs-6 text-gray-600 pe-7'>
-                  Login into Admin Dashboard to make sure the data integrity is OK
+                  Login into Metronic Admin Dashboard to make sure the data integrity is OK
                 </div>
               </div>
               <a href='#' className='btn btn-primary px-6 align-self-center text-nowrap'>

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useEffect, useRef} from 'react'
-import {Modal} from 'react-bootstrap-v5'
+import {Modal} from 'react-bootstrap'
 import {Link, useLocation} from 'react-router-dom'
 import {KTSVG, toAbsoluteUrl} from '../../helpers'
 

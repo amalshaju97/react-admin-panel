@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import {useLang} from './Commoni18n'
+import {useLang} from './Metronici18n'
 import {IntlProvider} from 'react-intl'
 import '@formatjs/intl-relativetimeformat/polyfill'
 import '@formatjs/intl-relativetimeformat/locale-data/en'

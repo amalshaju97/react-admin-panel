@@ -1,26 +1,21 @@
-import React, {Suspense} from 'react'
-import {BrowserRouter} from 'react-router-dom'
+import {Suspense} from 'react'
+import {Outlet} from 'react-router-dom'
 import {I18nProvider} from '../_common/i18n/i18nProvider'
 import {LayoutProvider, LayoutSplashScreen} from '../_common/layout/core'
-import AuthInit from './modules/auth/redux/AuthInit'
-import {Routes} from './routing/Routes'
+import {MasterInit} from '../_common/layout/MasterInit'
+import {AuthInit} from './modules/auth'
 
-type Props = {
-  basename: string
-}
-
-const App: React.FC<Props> = ({basename}) => {
+const App = () => {
   return (
     <Suspense fallback={<LayoutSplashScreen />}>
-      <BrowserRouter basename={basename}>
-        <I18nProvider>
-          <LayoutProvider>
-            <AuthInit>
-              <Routes />
-            </AuthInit>
-          </LayoutProvider>
-        </I18nProvider>
-      </BrowserRouter>
+      <I18nProvider>
+        <LayoutProvider>
+          <AuthInit>
+            <Outlet />
+            <MasterInit />
+          </AuthInit>
+        </LayoutProvider>
+      </I18nProvider>
     </Suspense>
   )
 }

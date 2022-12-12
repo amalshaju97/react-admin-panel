@@ -1,7 +1,7 @@
 import {FC} from 'react'
 import {IconUserModel} from '../ProfileModels'
 import {toAbsoluteUrl} from '../../../../_common/helpers'
-import {OverlayTrigger, Tooltip} from 'react-bootstrap-v5'
+import {OverlayTrigger, Tooltip} from 'react-bootstrap'
 
 type Props = {
   users?: Array<IconUserModel>

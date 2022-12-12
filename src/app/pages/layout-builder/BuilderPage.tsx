@@ -59,10 +59,10 @@ const BuilderPage: React.FC = () => {
           <div className='ms-6'>
             <p className='list-unstyled text-gray-600 fw-bold fs-6 p-0 m-0'>
               The layout builder is to assist your set and configure your preferred project layout
-              specifications and preview it in real-time and export the HTML template with its
-              includable partials of this demo. The downloaded version does not include the assets
-              folder since the layout builder's main purpose is to help to generate the final HTML
-              code without hassle. Layout builder changes don't affect pages with layout wrappers.
+              specifications and preview it in real-time. 
+            </p>
+            <p className='list-unstyled text-gray-600 fw-bold fs-6 p-0 m-0'>
+              Also, you can configurate the Layout in the code (<code>src/_common/layout/core/DefaultLayoutConfig.ts</code> file). Don't forget clear your local storage when you are changing DefaultLayoutConfig.
             </p>
           </div>
           {/* end::Description */}
@@ -76,7 +76,7 @@ const BuilderPage: React.FC = () => {
           >
             <li className='nav-item'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'Header'})}
+                className={clsx(`nav-link cursor-pointer`, {active: tab === 'Header'})}
                 onClick={() => setTab('Header')}
                 role='tab'
               >
@@ -85,7 +85,7 @@ const BuilderPage: React.FC = () => {
             </li>
             <li className='nav-item'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'Toolbar'})}
+                className={clsx(`nav-link cursor-pointer`, {active: tab === 'Toolbar'})}
                 onClick={() => setTab('Toolbar')}
                 role='tab'
               >
@@ -94,7 +94,7 @@ const BuilderPage: React.FC = () => {
             </li>
             <li className='nav-item'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'PageTitle'})}
+                className={clsx(`nav-link cursor-pointer`, {active: tab === 'PageTitle'})}
                 onClick={() => setTab('PageTitle')}
                 role='tab'
               >
@@ -103,7 +103,7 @@ const BuilderPage: React.FC = () => {
             </li>
             <li className='nav-item'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'Aside'})}
+                className={clsx(`nav-link cursor-pointer`, {active: tab === 'Aside'})}
                 onClick={() => setTab('Aside')}
                 role='tab'
               >
@@ -112,7 +112,7 @@ const BuilderPage: React.FC = () => {
             </li>
             <li className='nav-item'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'Content'})}
+                className={clsx(`nav-link cursor-pointer`, {active: tab === 'Content'})}
                 onClick={() => setTab('Content')}
                 role='tab'
               >
@@ -121,7 +121,7 @@ const BuilderPage: React.FC = () => {
             </li>
             <li className='nav-item'>
               <a
-                className={clsx(`nav-link`, {active: tab === 'Footer'})}
+                className={clsx(`nav-link cursor-pointer`, {active: tab === 'Footer'})}
                 onClick={() => setTab('Footer')}
                 role='tab'
               >
@@ -191,7 +191,7 @@ const BuilderPage: React.FC = () => {
                     <select
                       className='form-select form-select-solid'
                       name='layout-builder[layout][header][width]'
-                      value={config.header.width}
+                      value={config.header.left}
                       onChange={(e) =>
                         updateData({
                           header: {
@@ -289,7 +289,7 @@ const BuilderPage: React.FC = () => {
                               ...config.toolbar,
                               fixed: {
                                 ...config.toolbar.fixed,
-                                desktop: !config.toolbar.fixed.tabletAndMobileMode,
+                                tabletAndMobileMode: !config.toolbar.fixed.tabletAndMobileMode,
                               },
                             },
                           })
@@ -361,7 +361,7 @@ const BuilderPage: React.FC = () => {
                           updateData({
                             pageTitle: {
                               ...config.pageTitle!,
-                              display: !config.pageTitle?.breadCrumbs,
+                              breadCrumbs: !config.pageTitle?.breadCrumbs,
                             },
                           })
                         }
@@ -458,7 +458,7 @@ const BuilderPage: React.FC = () => {
                             updateData({
                               aside: {
                                 ...config.aside,
-                                display: !config.aside.fixed,
+                                fixed: !config.aside.fixed,
                               },
                             })
                           }
@@ -482,7 +482,7 @@ const BuilderPage: React.FC = () => {
                             updateData({
                               aside: {
                                 ...config.aside,
-                                display: !config.aside.minimize,
+                                minimize: !config.aside.minimize,
                               },
                             })
                           }
@@ -506,7 +506,7 @@ const BuilderPage: React.FC = () => {
                             updateData({
                               aside: {
                                 ...config.aside,
-                                display: !config.aside.minimized,
+                                minimized: !config.aside.minimized,
                               },
                             })
                           }
@@ -530,7 +530,7 @@ const BuilderPage: React.FC = () => {
                             updateData({
                               aside: {
                                 ...config.aside,
-                                display: !config.aside.hoverable,
+                                hoverable: !config.aside.hoverable,
                               },
                             })
                           }

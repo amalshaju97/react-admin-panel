@@ -156,7 +156,7 @@ const TablesWidget5: React.FC<Props> = ({className}) => {
                       </a>
                       <span className='text-muted fw-bold d-block'>Awesome Users</span>
                     </td>
-                    <td className='text-end text-muted fw-bold'>Laravel</td>
+                    <td className='text-end text-muted fw-bold'>Laravel,Metronic</td>
                     <td className='text-end'>
                       <span className='badge badge-light-primary'>Success</span>
                     </td>
@@ -480,7 +480,7 @@ const TablesWidget5: React.FC<Props> = ({className}) => {
                       </a>
                       <span className='text-muted fw-bold d-block'>Awesome Users</span>
                     </td>
-                    <td className='text-end text-muted fw-bold'>Laravel</td>
+                    <td className='text-end text-muted fw-bold'>Laravel,Metronic</td>
                     <td className='text-end'>
                       <span className='badge badge-light-primary'>Success</span>
                     </td>

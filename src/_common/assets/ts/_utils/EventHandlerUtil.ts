@@ -85,7 +85,7 @@ export class EventHandlerUtil {
     EventHandlerUtil.setEventMetasByName(name, metas)
   }
 
-  public static trigger(element: HTMLElement, name: string, e?: Event) {
+  public static trigger(element: HTMLElement, name: string, target?: any, e?: Event) {
     if (DataUtil.has(element, name)) {
       const handlerId = DataUtil.get(element, name)
       if (!handlerId) {
@@ -98,10 +98,10 @@ export class EventHandlerUtil {
           if (handler.one === true) {
             if (handler.fired === false) {
               EventHandlerUtil.setFiredByNameAndHandlerId(name, handlerId, true)
-              return handler.callback.call(this, e)
+              return handler.callback.call(this, target, e)
             }
           } else {
-            return handler.callback.call(this, e)
+            return handler.callback.call(this, target, e)
           }
         }
       }
