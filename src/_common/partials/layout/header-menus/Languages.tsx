@@ -2,7 +2,7 @@
 import clsx from 'clsx'
 import {FC} from 'react'
 import {toAbsoluteUrl} from '../../../helpers'
-import {useLang, setLanguage} from '../../../i18n/Metronici18n'
+import {useLang, setLanguage} from '../../../i18n/Commoni18n'
 
 const languages = [
   {
@@ -55,7 +55,7 @@ const Languages: FC = () => {
             <img
               className='w-15px h-15px rounded-1 ms-2'
               src={currentLanguage?.flag}
-              alt='metronic'
+              alt='language'
             />
           </span>
         </span>
@@ -75,7 +75,7 @@ const Languages: FC = () => {
               className={clsx('menu-link d-flex px-5', {active: l.lang === currentLanguage?.lang})}
             >
               <span className='symbol symbol-20px me-4'>
-                <img className='rounded-1' src={l.flag} alt='metronic' />
+                <img className='rounded-1' src={l.flag} alt='menu-link' />
               </span>
               {l.name}
             </a>
